@@ -71,14 +71,6 @@ img {
 }
 
 /* Utilities */
-.logo img {
-  display: block;
-  height: 40px;
-  width: auto;
-  max-width: 140px;
-  object-fit: contain;
-}
-
 @media (max-width: 768px) {
   .navbar {
     padding: 10px 0;
