@@ -229,3 +229,18 @@ window.copyText = function (elementId, btnElement) {
       console.error('Failed to copy: ', err);
     });
 };
+
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+
+    const icon = menuToggle.querySelector("i");
+
+    if(navLinks.classList.contains("active")){
+        icon.classList.replace("fa-bars","fa-xmark");
+    }else{
+        icon.classList.replace("fa-xmark","fa-bars");
+    }
+});
