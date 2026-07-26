@@ -81,8 +81,9 @@ img {
   display: block;
   height: 42px;
   width: auto;
-  max-width: 180px;
+  max-width: 150px;
   object-fit: contain;
+  transform: scale(1.5);
 }
 
 @media (max-width: 768px) {
