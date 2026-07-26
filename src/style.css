@@ -71,12 +71,6 @@ img {
 }
 
 /* Utilities */
-.logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
 .logo img {
   display: block;
   height: 40px;
@@ -97,25 +91,11 @@ img {
     align-items: center;
   }
 
-  .logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-  }
-
   .logo img {
-    display: block;
-    height: 32px;
+    height: 26px;
     width: auto;
-    max-width: 120px;
+    max-width: 90px;
     object-fit: contain;
-  }
-
-  @media (max-width: 768px) {
-    .logo img {
-      height: 26px;
-      max-width: 90px;
-    }
   }
 
   .nav-links {
@@ -130,7 +110,6 @@ img {
     gap: 20px;
     padding: 30px;
     transition: 0.3s;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
   }
 
   .nav-links.active {
@@ -228,12 +207,6 @@ img {
 
 .nav-links a:hover::after {
   width: 100%;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
 }
 
 /* Buttons */
