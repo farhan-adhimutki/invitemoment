@@ -74,12 +74,22 @@ img {
 .logo {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .logo img {
-  height: 42px; /* Sesuaikan ukuran */
-  width: auto;
   display: block;
+  height: 42px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 34px;
+    max-width: 140px;
+  }
 }
 
 .glassmorphism {
