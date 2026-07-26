@@ -86,9 +86,24 @@ img {
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 10px 0;
+  }
+
+  .nav-container {
+    width: 92%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .logo img {
-    height: 34px;
-    max-width: 140px;
+    height: 28px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: none;
   }
 }
 
