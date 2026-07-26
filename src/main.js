@@ -18,35 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animatedElements.forEach((el) => observer.observe(el));
 
-  const toggleButton = document.querySelector('.menu-toggle');
-  const navLinks = document.getElementById('nav-links');
-
-  if (toggleButton && navLinks) {
-    const closeMenu = () => {
-      navLinks.classList.remove('active');
-      toggleButton.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('nav-open');
-    };
-
-    toggleButton.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('active');
-      toggleButton.setAttribute('aria-expanded', String(isOpen));
-      document.body.classList.toggle('nav-open', isOpen);
-    });
-
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        closeMenu();
-      });
-    });
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        closeMenu();
-      }
-    });
-  }
-
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
