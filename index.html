@@ -17,13 +17,19 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar glassmorphism">
+    <nav class="navbar glassmorphism" aria-label="Primary navigation">
       <div class="nav-container">
-        <a href="#" class="logo">
+        <a href="#home" class="logo" aria-label="Kembali ke halaman utama">
           <img src="src/assets/logo.png" alt="InviteMomentKita" />
         </a>
 
-        <div class="nav-links" id="nav-links">
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links" id="nav-links" role="navigation">
           <a href="#about">Tentang Kami</a>
           <a href="#catalog">Katalog</a>
           <a href="#contact">Hubungi Kami</a>
