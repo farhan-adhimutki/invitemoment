@@ -267,7 +267,7 @@ img {
 
 /* Hero Section */
 .hero {
-  height: 100vh;
+  height: 70vh;
   min-height: 600px;
   background: url('/hero_bg.jpg') center/cover no-repeat;
   position: relative;
@@ -295,7 +295,7 @@ img {
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 1.5rem;
   color: var(--color-primary);
