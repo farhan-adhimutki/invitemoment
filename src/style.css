@@ -71,6 +71,17 @@ img {
 }
 
 /* Utilities */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 42px; /* Sesuaikan ukuran */
+  width: auto;
+  display: block;
+}
+
 .glassmorphism {
   background: rgba(248, 245, 242, 0.8);
   backdrop-filter: blur(12px);
@@ -345,7 +356,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../src/assets/demo1.jpeg');
+  background-image: url('../src/assets/modern-elegant.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
