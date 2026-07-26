@@ -79,11 +79,10 @@ img {
 
 .logo img {
   display: block;
-  height: 42px;
+  height: 40px;
   width: auto;
-  max-width: 150px;
+  max-width: 140px;
   object-fit: contain;
-  transform: scale(1.5);
 }
 
 @media (max-width: 768px) {
