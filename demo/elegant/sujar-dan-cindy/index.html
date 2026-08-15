@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Wedding of Sujarwanto & Cindy Tritavina</title>
+
+    <!-- Google Fonts -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Custom CSS (cache-busted) -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="locked">
+    <!-- Opening Cover -->
+    <section id="cover" class="cover-section">
+      <div class="cover-bg" style="background-image: url('aset/cindy.png')"></div>
+      <div class="cover-overlay"></div>
+      <div class="cover-content">
+        <h4 class="fade-up">The Wedding Of</h4>
+        <h1 class="fade-up delay-1">
+          Sujar<br>
+          &</h1><h1>Cindy</h1>
+        </h1>
+        <div class="guest-info fade-up delay-2">
+          <p>Dear,</p>
+          <h3 id="guest-name"></h3>
+          <p>Anda di undang!</p>
+        </div>
+        <button id="open-invitation" class="btn-primary fade-up delay-3"><i class="fa-solid fa-envelope-open"></i> Buka Undangan!</button>
+      </div>
+    </section>
+
+    <!-- Main Content wrapper (hidden initially) -->
+    <main id="main-content" class="hidden">
+      <!-- Navigation -->
+      <nav id="navbar">
+        <div class="nav-container">
+          <div class="logo">IMK</div>
+          <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#hero"></a>Beranda</li>
+            <li><a href="#couple">Pasangan</a></li>
+            <li><a href="#story">Kisah</a></li>
+            <li><a href="#events">Acara</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Bottom Mobile Nav -->
+      <nav id="bottom-nav" class="mobile-only">
+        <ul>
+          <li>
+            <a href="#hero"><i class="fa-solid fa-house"></i><span>Home</span></a>
+          </li>
+          <li>
+            <a href="#couple"><i class="fa-solid fa-heart"></i><span>Couple</span></a>
+          </li>
+          <li>
+            <a href="#events"><i class="fa-regular fa-calendar"></i><span>Events</span></a>
+          </li>
+          <li>
+            <a href="#gallery"><i class="fa-regular fa-image"></i><span>Gallery</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="hero" class="section hero-section">
+        <div class="hero-bg" style="background-image: url('aset/cindy1.png')"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content container scroll-anim">
+          <h4>Kami Akan Menikah</h4>
+          <h1>Sujar<br />&<br />Cindy</h1>
+          <p class="wedding-date">Minggu, 06 September 2026</p>
+
+          <div class="countdown" id="countdown">
+            <div class="time-box">
+              <span id="days">00</span>
+              <p>Hari</p>
+            </div>
+            <div class="time-box">
+              <span id="hours">00</span>
+              <p>Jam</p>
+            </div>
+            <div class="time-box">
+              <span id="minutes">00</span>
+              <p>Menit</p>
+            </div>
+            <div class="time-box">
+              <span id="seconds">00</span>
+              <p>Detik</p>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <p>Lihat Selengkapnya</p>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </section>
+
+      <!-- Quote Section -->
+      <section id="quote" class="section quote-section bg-ivory">
+        <div class="container scroll-anim">
+          <i class="fa-solid fa-quote-left quote-icon"></i>
+          <blockquote>"Jika semesta memberiku kesempatan untuk mengulang kisah ini berkali-kali, aku akan tetap mencarimu di setiap kehidupan. Dan ketika akhirnya aku menemukanmu, Cindy, aku akan tetap memilihmu."</blockquote>
+          <p class="quote-author">- Sujar</p>
+        </div>
+      </section>
+
+      <!-- Bride & Groom -->
+      <section id="couple" class="section couple-section">
+        <div class="container">
+          <div class="section-title scroll-anim">
+            <h2>Pengantin Wanita & Pria</h2>
+            <p>Dengan rahmat dan berkat Tuhan, kami mengundang Anda ke pernikahan kami.</p>
+          </div>
+
+          <div class="couple-grid">
+            <!-- Bride -->
+            <div class="person-card scroll-anim left">
+              <div class="person-image">
+                <img src="aset/cndy.jpeg" alt="Eleanor" class="bride-img" />
+                <div class="image-frame"></div>
+              </div>
+              <h3 class="person-name">Cindy Tritavina, S.Pd</h3>
+              <p class="parents">Putri Ketiga dari Bapak Tapsir dan Ibu Elpisna, S.Pd,Aud</p>
+              <a href="https://www.instagram.com/cindytritavina_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i> @CindyTritavina_</a>
+            </div>
+
+            <div class="ampersand scroll-anim">
+              <h2>&</h2>
+            </div>
+
+            <!-- Groom -->
+            <div class="person-card scroll-anim right">
+              <div class="person-image">
+                <img src="aset/sujar.jpeg" alt="Theodore" class="groom-img" />
+                <div class="image-frame"></div>
+              </div>
+              <h3 class="person-name">Sujarwanto Budi Setiono, S.E</h3>
+              <p class="parents">Putra Pertama dari Bapak Sukimin dan ibu Suharni</p>
+              <a href="https://www.instagram.com/sujar_jarr?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i> @Sujar_jarr</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Love Story Timeline -->
+      <section id="story" class="section story-section bg-ivory">
+        <div class="container">
+          <div class="section-title scroll-anim">
+            <h2>Kisah Cinta Kita</h2>
+            <p>Sebuah perjalanan dari sapaan pertama kita hingga selamanya.</p>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item scroll-anim left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>Pertemuan Pertama</h3>
+                <span class="date">Januari 27, 2022</span>
+                <p>Semua berawal dari sebuah pertemuan sederhana antara dua orang asing yang kemudian saling mengenal. Waktu berlalu dan komunikasi sempat terhenti, hingga takdir kembali mempertemukan kami.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item scroll-anim right">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>Kembali Dipertemukan</h3>
+                <span class="date">Mei 20, 2023</span>
+                <p>Dari sapaan dan percakapan yang kembali terjalin, tumbuh rasa yang semakin berarti. Kami kemudian memutuskan untuk saling memilih dan menjalani perjalanan bersama sebagai pasangan.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item scroll-anim left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>Melamar</h3>
+                <span class="date">Mei 31, 2026</span>
+                <p>Perjalanan kami tidak selalu mudah, namun kami terus memilih untuk bertahan dan kembali satu sama lain. Hingga akhirnya, sebuah keputusan indah membawa kami menuju langkah berikutnya: mengikat cinta dalam sebuah ikatan yang sah.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Events -->
+      <section id="events" class="section events-section">
+        <div class="container">
+          <div class="section-title scroll-anim">
+            <h2>Acara Pernikahan</h2>
+            <p>Kami tidak sabar untuk merayakan bersama Anda.</p>
+          </div>
+
+          <div class="events-grid">
+            <!-- Ceremony -->
+            <div class="event-card glass-panel scroll-anim left">
+              <div class="event-icon"><i class="fa-solid fa-ring"></i></div>
+              <h3>Pernikahan Suci</h3>
+              <div class="event-details">
+                <p><i class="fa-regular fa-calendar"></i> Minggu, 06 September 2026</p>
+                <p><i class="fa-regular fa-clock"></i> 14.00 WIB S.D Selesai</p>
+                <p>
+                  <i class="fa-solid fa-location-dot"></i> <strong>Kediaman Mempelai Wanita</strong><br />
+                  RT.07 Desa Panti Kecamatan Sarolangun 
+                </p>
+              </div>
+              <a href="#" class="btn-outline">Simpan ke Kalender</a>
+            </div>
+
+            <!-- Reception -->
+            <div class="event-card glass-panel scroll-anim right">
+              <div class="event-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+              <h3>Resepsi Pernikahan</h3>
+              <div class="event-details">
+                <p><i class="fa-regular fa-calendar"></i> senin, 07 September 2026</p>
+                <p><i class="fa-regular fa-clock"></i> 18:00 PM - Selesai</p>
+                <p><i class="fa-solid fa-location-dot"></i> <strong>Kediaman Mempelai Wanita</strong><br />RT.07 Desa Panti Kecamatan Sarolangun</p>
+              </div>
+              <a href="#" class="btn-outline">Simpan ke Kalender</a>
+            </div>
+          </div>
+
+          <!-- Map Embed -->
+          <div class="map-container scroll-anim">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3986.597906572473!2d102.64315417496812!3d-2.3022162976776244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMsKwMTgnMDguMCJTIDEwMsKwMzgnNDQuNiJF!5e0!3m2!1sid!2sid!4v1786720267452!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <a href="https://maps.app.goo.gl/UDLzeLBMVuoBfDuq7" target="_blank" class="btn-primary map-btn"><i class="fa-solid fa-map-location-dot"></i> Open Google Maps</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery" class="section gallery-section bg-ivory">
+        <div class="container">
+          <div class="section-title scroll-anim">
+            <h2>Galeri Kami</h2>
+            <p>Moment yang telah kami bagikan bersama.</p>
+          </div>
+
+          <div class="gallery-masonry" id="gallery-container">
+            <div class="gallery-item scroll-anim"><img src="aset/cnd1.jpg" class="gal-img" alt="Gallery" /></div>
+            <div class="gallery-item scroll-anim"><img src="aset/cnd2.jpg" class="gal-img" alt="Gallery" /></div>
+            <div class="gallery-item scroll-anim"><img src="aset/cns3.jpg" class="gal-img" alt="Gallery" /></div>
+            <div class="gallery-item scroll-anim"><img src="aset/cnd4.jpg" class="gal-img" alt="Gallery" /></div>
+            <div class="gallery-item scroll-anim"><img src="aset/cnd5.jpeg" class="gal-img" alt="Gallery" /></div>
+          </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+          <span class="close-lightbox">&times;</span>
+          <img class="lightbox-content" id="lightbox-img" />
+        </div>
+      </section>
+
+      <!-- Gifts -->
+      <section id="gifts" class="section gifts-section bg-ivory">
+        <div class="container">
+          <div class="section-title scroll-anim">
+            <h2>Hadiah Pernikahan</h2>
+            <p>Doa restu Bapak/Ibu sekalian merupakan hadiah yang sangat berarti bagi kami. Apabila berkenan memberikan tanda kasih, Bapak/Ibu dapat menyampaikannya melalui detail yang telah kami sediakan di bawah ini. Terima kasih atas doa, perhatian, dan kasih sayang yang menyertai hari bahagia kami.</p>
+          </div>
+
+          <div class="gifts-grid">
+            <div class="gift-card scroll-anim left">
+              <i class="fa-solid fa-building-columns gift-icon"></i>
+              <h3>Bank Transfer</h3>
+              <p class="bank-name">Mandiri</p>
+              <p class="account-number" id="acc-1">1100020317779</p>
+              <p class="account-name">CINDY TRITAVINA</p>
+              <button class="btn-copy" onclick="copyText('acc-1', this)"><i class="fa-regular fa-copy"></i> Salin Nomor</button>
+            </div>
+
+            <div class="gift-card scroll-anim right">
+              <i class="fa-solid fa-building-columns gift-icon"></i>
+              <h3>Bank Transfer</h3>
+              <p class="bank-name">BSI</p>
+              <p class="account-number" id="acc-2">7304252019</p>
+              <p class="account-name">Sujarwanto budi setiono</p>
+              <button class="btn-copy" onclick="copyText('acc-2', this)"><i class="fa-regular fa-copy"></i> Salin Nomor</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="rsvp" class="section">
+  <div class="container">
+
+    <div class="section-title scroll-anim">
+      <h2>Konfirmasi Kehadiran</h2>
+      <p>
+        Mohon konfirmasi kehadiran Anda pada acara pernikahan kami.
+      </p>
+    </div>
+
+    <div class="rsvp-card scroll-anim">
+
+      <form id="rsvp-form">
+
+        <div class="form-group">
+          <label for="rsvp-name">Nama</label>
+          <input
+            type="text"
+            id="rsvp-name"
+            placeholder="Masukkan nama Anda"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-attendance">Kehadiran</label>
+          <select id="rsvp-attendance" required>
+            <option value="">Pilih kehadiran</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Tidak Hadir</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-guests">Jumlah Tamu</label>
+          <select id="rsvp-guests" required>
+            <option value="">Pilih jumlah tamu</option>
+            <option value="1">1 Orang</option>
+            <option value="2">2 Orang</option>
+            <option value="3">3 Orang</option>
+            <option value="4">4 Orang</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-message">Ucapan & Doa</label>
+          <textarea
+            id="rsvp-message"
+            rows="4"
+            placeholder="Tuliskan ucapan dan doa..."
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" id="rsvp-submit">
+          <i class="fa-solid fa-paper-plane"></i>
+          Kirim Konfirmasi
+        </button>
+
+        <p id="rsvp-status"></p>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container scroll-anim">
+          <h2>Sujar & Cindy</h2>
+          <p>Terima kasih telah menjadi bagian dari hari istimewa kami.</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/cindytritavina_/"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+          <p class="copyright">&copy; 2026 Sujar & Cindy. Designed with @invitemomentkita</p>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Floating Buttons -->
+    <div class="floating-controls hidden" id="floating-controls">
+      <button id="music-btn" class="float-btn"><i class="fa-solid fa-music"></i></button>
+      <a href="https://wa.me/6285269791161" target="_blank" class="float-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <!-- Audio (Placeholder) -->
+    <audio id="bg-music" loop>
+      <source src="aset/romansa.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

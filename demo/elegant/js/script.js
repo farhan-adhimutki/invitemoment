@@ -71,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- 3. Countdown Timer ---
-  // Set wedding date: Oct 25, 2026 09:00:00
-  const weddingDate = new Date('October 25, 2026 09:00:00').getTime();
+  // Set wedding date: Sept 06, 2026 14:00:00
+  const weddingDate = new Date('September 06, 2026 14:00:00').getTime();
 
   const countdownTimer = setInterval(() => {
     const now = new Date().getTime();
@@ -229,3 +229,62 @@ window.copyText = function (elementId, btnElement) {
       console.error('Failed to copy: ', err);
     });
 };
+
+// --- 8. RSVP ---
+const rsvpForm = document.getElementById('rsvp-form');
+const rsvpSubmit = document.getElementById('rsvp-submit');
+const rsvpStatus = document.getElementById('rsvp-status');
+
+// URL Web App Google Apps Script
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwKIPhIjSWlTKAe2SJB-_E5UDNw5h7mgRtWyfRW88F7Kq6via2ivJ9omHXVszG3i4iYMQ/exec';
+
+if (rsvpForm) {
+  rsvpForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const nama = document.getElementById('rsvp-name').value.trim();
+    const kehadiran = document.getElementById('rsvp-attendance').value;
+    const jumlahTamu = document.getElementById('rsvp-guests').value;
+    const ucapan = document.getElementById('rsvp-message').value.trim();
+
+    if (!nama || !kehadiran || !jumlahTamu || !ucapan) {
+      rsvpStatus.textContent = 'Mohon lengkapi semua data.';
+      return;
+    }
+
+    rsvpSubmit.disabled = true;
+    rsvpSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
+
+    rsvpStatus.textContent = '';
+
+    try {
+      const response = await fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify({
+          nama: nama,
+          kehadiran: kehadiran,
+          jumlahTamu: jumlahTamu,
+          ucapan: ucapan,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        rsvpStatus.textContent = 'Terima kasih, konfirmasi kehadiran berhasil dikirim.';
+
+        rsvpForm.reset();
+      } else {
+        rsvpStatus.textContent = 'Konfirmasi gagal dikirim. Silakan coba lagi.';
+      }
+    } catch (error) {
+      console.error('RSVP Error:', error);
+
+      rsvpStatus.textContent = 'Terjadi kesalahan. Silakan coba lagi.';
+    }
+
+    rsvpSubmit.disabled = false;
+
+    rsvpSubmit.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Kirim Konfirmasi';
+  });
+}

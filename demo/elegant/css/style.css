@@ -590,7 +590,7 @@ blockquote {
 .ampersand h2 {
   font-size: 5rem;
   color: var(--color-primary);
-  opacity: 0.5;
+  opacity: 1;
   margin: 0;
   display: flex;
   justify-content: center;
