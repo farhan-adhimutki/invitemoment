@@ -236,7 +236,7 @@ const rsvpSubmit = document.getElementById('rsvp-submit');
 const rsvpStatus = document.getElementById('rsvp-status');
 
 // URL Web App Google Apps Script
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwKIPhIjSWlTKAe2SJB-_E5UDNw5h7mgRtWyfRW88F7Kq6via2ivJ9omHXVszG3i4iYMQ/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwuGwQAvKxIFib8wmSbvPbAgzbJMm9BytbbTnhaB_anYKGS3mO9yUaaoDlPqelaTjk00g/exec';
 
 if (rsvpForm) {
   rsvpForm.addEventListener('submit', async (e) => {
@@ -258,22 +258,37 @@ if (rsvpForm) {
     rsvpStatus.textContent = '';
 
     try {
-      const response = await fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify({
-          nama: nama,
-          kehadiran: kehadiran,
-          jumlahTamu: jumlahTamu,
-          ucapan: ucapan,
-        }),
+      const formData = new URLSearchParams({
+        nama: nama,
+        kehadiran: kehadiran,
+        jumlahTamu: jumlahTamu,
+        ucapan: ucapan,
       });
 
-      const result = await response.json();
+      const response = await fetch(scriptURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        },
+        body: formData.toString(),
+      });
 
-      if (result.success) {
+      const responseText = await response.text();
+      let result = {};
+
+      if (responseText) {
+        try {
+          result = JSON.parse(responseText);
+        } catch {
+          result = { success: response.ok && /success|ok|berhasil|terima kasih/i.test(responseText) };
+        }
+      }
+
+      if (result.success || result.status === 'success' || result.status === 'ok') {
         rsvpStatus.textContent = 'Terima kasih, konfirmasi kehadiran berhasil dikirim.';
-
         rsvpForm.reset();
+      } else if (response.ok) {
+        rsvpStatus.textContent = 'Konfirmasi terkirim. Silakan tunggu konfirmasi berikutnya.';
       } else {
         rsvpStatus.textContent = 'Konfirmasi gagal dikirim. Silakan coba lagi.';
       }
