@@ -137,7 +137,7 @@ img {
 }
 
 .section {
-  padding: 6rem 0;
+  padding: 2rem 0;
   position: relative;
   overflow: hidden;
 }
@@ -543,6 +543,15 @@ blockquote {
   margin-top: 3rem;
 }
 
+.person-role {
+  margin: 0.8rem 0 0.4rem;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #989898;
+  font-family: var(--font-body);
+}
+
 .person-card {
   text-align: center;
 }
@@ -623,7 +632,7 @@ blockquote {
   transform: translateX(-50%);
   width: 2px;
   height: 100%;
-  background: var(--color-primary);
+  background: #ffff;
   opacity: 0.3;
 }
 
