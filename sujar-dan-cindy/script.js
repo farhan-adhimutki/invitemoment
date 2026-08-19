@@ -236,7 +236,7 @@ const rsvpSubmit = document.getElementById('rsvp-submit');
 const rsvpStatus = document.getElementById('rsvp-status');
 
 // URL Web App Google Apps Script
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwuGwQAvKxIFib8wmSbvPbAgzbJMm9BytbbTnhaB_anYKGS3mO9yUaaoDlPqelaTjk00g/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycby46Bixlf8gBf3dJOyojmpOsaNXbFOF-6tLmYwtXS1M8sonKkviqYB6y1t8vZfR-y9hHg/exec';
 
 if (rsvpForm) {
   rsvpForm.addEventListener('submit', async (e) => {
