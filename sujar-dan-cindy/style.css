@@ -1339,6 +1339,57 @@ blockquote {
   font-size: 13px;
 }
 
+#rsvp-wishes {
+  margin-top: 32px;
+}
+
+#rsvp-wishes h3 {
+  margin-bottom: 16px;
+  color: #bf9873;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  text-align: center;
+}
+
+#rsvp-wishes-list {
+  display: grid;
+  gap: 14px;
+}
+
+.rsvp-wish-card {
+  padding: 16px 18px;
+  border: 1px solid #e3d9d5;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.rsvp-wish-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.rsvp-wish-header h4 {
+  margin: 0;
+  color: #4a3a3a;
+  font-size: 14px;
+}
+
+.rsvp-attendance {
+  color: #bf9873;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.rsvp-wish-card p {
+  margin: 0;
+  color: var(--color-text-light);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
 /* =========================
    MOBILE
 ========================= */

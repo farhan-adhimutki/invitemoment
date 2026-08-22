@@ -65,9 +65,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const guestNameEl = document.getElementById('guest-name');
 
   if (toParam) {
-    // Replace dashes with spaces and capitalize
-    const formattedName = toParam.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+    const formattedName = toParam.replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
     guestNameEl.textContent = formattedName;
+
+    if (supabaseClient) {
+      supabaseClient
+        .from('cindy')
+        .select('nama')
+        .ilike('nama', formattedName)
+        .limit(1)
+        .maybeSingle()
+        .then(({ data, error }) => {
+          if (error) {
+            console.error('Guest name lookup error:', error);
+            return;
+          }
+
+          if (data?.nama) {
+            guestNameEl.textContent = data.nama;
+          }
+        });
+    }
   }
 
   // --- 3. Countdown Timer ---
@@ -230,76 +248,109 @@ window.copyText = function (elementId, btnElement) {
     });
 };
 
-// --- 8. RSVP ---
+// --- 8. RSVP Supabase ---
 const rsvpForm = document.getElementById('rsvp-form');
-const rsvpSubmit = document.getElementById('rsvp-submit');
 const rsvpStatus = document.getElementById('rsvp-status');
+const rsvpWishesList = document.getElementById('rsvp-wishes-list');
+const rsvpStorageKey = 'sujar-cindy-rsvp';
+const supabaseClient = window.supabase?.createClient('https://csuwnladmgmqmfwzuvji.supabase.co', 'sb_publishable_55tMFA8vcQKj98tgeEWK8w_rVXIRYCO');
 
-// URL Web App Google Apps Script
-const scriptURL = 'https://script.google.com/macros/s/AKfycby46Bixlf8gBf3dJOyojmpOsaNXbFOF-6tLmYwtXS1M8sonKkviqYB6y1t8vZfR-y9hHg/exec';
+function renderRsvpList(rsvps) {
+  rsvpWishesList.replaceChildren();
 
-if (rsvpForm) {
+  rsvps.forEach((rsvp) => {
+    const wishCard = document.createElement('article');
+    wishCard.className = 'rsvp-wish-card';
+
+    const wishHeader = document.createElement('div');
+    wishHeader.className = 'rsvp-wish-header';
+
+    const wishName = document.createElement('h4');
+    wishName.textContent = rsvp.nama;
+
+    const attendance = document.createElement('span');
+    attendance.className = 'rsvp-attendance';
+    attendance.textContent = rsvp.status_kehadiran;
+
+    const wishMessage = document.createElement('p');
+    wishMessage.textContent = rsvp.ucapann;
+
+    wishHeader.append(wishName, attendance);
+    wishCard.append(wishHeader, wishMessage);
+    rsvpWishesList.append(wishCard);
+  });
+}
+
+async function loadRsvps() {
+  if (!supabaseClient) {
+    rsvpStatus.textContent = 'RSVP belum dapat terhubung ke server.';
+    return;
+  }
+
+  const { data, error } = await supabaseClient.from('cindy').select('nama, status_kehadiran, ucapann, timestamp').order('timestamp', { ascending: false });
+
+  if (error) {
+    console.error('Load RSVP error:', error);
+    rsvpStatus.textContent = 'Ucapan belum dapat dimuat.';
+    return;
+  }
+
+  renderRsvpList(data || []);
+}
+
+if (rsvpForm && rsvpStatus && rsvpWishesList) {
+  loadRsvps();
+
+  try {
+    if (localStorage.getItem(rsvpStorageKey)) {
+      rsvpForm.hidden = true;
+      rsvpStatus.textContent = 'Anda sudah mengirim RSVP.';
+    }
+  } catch (error) {
+    console.error('Local RSVP error:', error);
+  }
+
   rsvpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const nama = document.getElementById('rsvp-name').value.trim();
-    const kehadiran = document.getElementById('rsvp-attendance').value;
-    const jumlahTamu = document.getElementById('rsvp-guests').value;
-    const ucapan = document.getElementById('rsvp-message').value.trim();
+    if (localStorage.getItem(rsvpStorageKey)) {
+      rsvpForm.hidden = true;
+      rsvpStatus.textContent = 'Anda sudah mengirim RSVP.';
+      return;
+    }
 
-    if (!nama || !kehadiran || !jumlahTamu || !ucapan) {
+    const rsvp = {
+      nama: document.getElementById('rsvp-name').value.trim(),
+      status_kehadiran: document.getElementById('rsvp-attendance').value,
+      ucapann: document.getElementById('rsvp-message').value.trim(),
+      timestamp: new Date().toISOString(),
+    };
+
+    if (!rsvp.nama || !rsvp.status_kehadiran || !rsvp.ucapann) {
       rsvpStatus.textContent = 'Mohon lengkapi semua data.';
       return;
     }
 
+    const rsvpSubmit = document.getElementById('rsvp-submit');
     rsvpSubmit.disabled = true;
     rsvpSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
 
-    rsvpStatus.textContent = '';
-
     try {
-      const formData = new URLSearchParams({
-        nama: nama,
-        kehadiran: kehadiran,
-        jumlahTamu: jumlahTamu,
-        ucapan: ucapan,
-      });
+      const { error } = await supabaseClient.from('cindy').insert(rsvp);
 
-      const response = await fetch(scriptURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        },
-        body: formData.toString(),
-      });
-
-      const responseText = await response.text();
-      let result = {};
-
-      if (responseText) {
-        try {
-          result = JSON.parse(responseText);
-        } catch {
-          result = { success: response.ok && /success|ok|berhasil|terima kasih/i.test(responseText) };
-        }
+      if (error) {
+        throw error;
       }
 
-      if (result.success || result.status === 'success' || result.status === 'ok') {
-        rsvpStatus.textContent = 'Terima kasih, konfirmasi kehadiran berhasil dikirim.';
-        rsvpForm.reset();
-      } else if (response.ok) {
-        rsvpStatus.textContent = 'Konfirmasi terkirim. Silakan tunggu konfirmasi berikutnya.';
-      } else {
-        rsvpStatus.textContent = 'Konfirmasi gagal dikirim. Silakan coba lagi.';
-      }
+      localStorage.setItem(rsvpStorageKey, 'sent');
+      await loadRsvps();
+      rsvpForm.hidden = true;
+      rsvpStatus.textContent = 'Anda sudah mengirim RSVP.';
     } catch (error) {
-      console.error('RSVP Error:', error);
-
-      rsvpStatus.textContent = 'Terjadi kesalahan. Silakan coba lagi.';
+      console.error('Supabase RSVP error:', error);
+      rsvpStatus.textContent = 'RSVP tidak dapat dikirim. Silakan coba lagi.';
+      rsvpSubmit.disabled = false;
+      rsvpSubmit.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Kirim Konfirmasi';
     }
-
-    rsvpSubmit.disabled = false;
-
-    rsvpSubmit.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Kirim Konfirmasi';
   });
 }
