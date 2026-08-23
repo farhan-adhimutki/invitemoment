@@ -1282,6 +1282,19 @@ blockquote {
     display: block !important;
   }
 
+  .section-flower,
+  #story .section-flower {
+    width: clamp(44px, 14vw, 64px);
+  }
+
+  .gift-flower {
+    width: clamp(48px, 14vw, 72px);
+  }
+
+  .footer-flower {
+    width: clamp(80px, 24vw, 120px);
+  }
+
   #navbar {
     display: none;
   }
