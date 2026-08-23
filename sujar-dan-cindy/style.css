@@ -457,6 +457,9 @@ img {
   height: auto;
   pointer-events: none;
   object-fit: contain;
+  display: block;
+  will-change: transform;
+  animation-play-state: running;
 }
 
 .hero-flower-left {
