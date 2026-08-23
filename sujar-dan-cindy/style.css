@@ -982,9 +982,99 @@ blockquote {
   padding: 4rem 0 2rem;
 }
 
+.footer-flower {
+  width: clamp(130px, 18vw, 220px);
+  height: auto;
+  margin: 0 auto 0.75rem;
+  object-fit: contain;
+  transform-origin: center bottom;
+  animation: footer-flower-sway 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes footer-flower-sway {
+  0%,
+  100% {
+    transform: rotate(-1deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(1deg) translate3d(2px, -2px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-flower {
+    animation: none;
+  }
+}
+
 .footer h2 {
   color: white;
   margin-bottom: 0.5rem;
+}
+
+.section-flower-reveal {
+  margin-top: 0.35rem;
+}
+
+.section-flower {
+  width: clamp(72px, 10vw, 110px);
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  transform-origin: center bottom;
+}
+
+.section-flower-reveal.show .section-flower {
+  animation: section-flower-float 6.5s ease-in-out 0.8s infinite;
+  will-change: transform;
+}
+
+.gift-flower-reveal {
+  position: relative;
+  width: fit-content;
+  margin: 0.35rem auto 0;
+  overflow: hidden;
+}
+
+.gift-flower {
+  display: block;
+  width: clamp(64px, 9vw, 100px);
+  height: auto;
+  object-fit: contain;
+  transform-origin: center bottom;
+}
+
+.gift-flower-reveal.show .gift-flower {
+  animation: gift-flower-float 6.5s ease-in-out 0.8s infinite;
+  will-change: transform;
+}
+
+@keyframes gift-flower-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-1deg);
+  }
+  50% {
+    transform: translate3d(2px, -3px, 0) rotate(1deg);
+  }
+}
+
+@keyframes section-flower-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-1deg);
+  }
+  50% {
+    transform: translate3d(2px, -3px, 0) rotate(1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-flower-reveal.show .section-flower,
+  .gift-flower-reveal.show .gift-flower {
+    animation: none;
+  }
 }
 
 .socials {
