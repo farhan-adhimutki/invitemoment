@@ -1354,6 +1354,28 @@ blockquote {
 #rsvp-wishes-list {
   display: grid;
   gap: 14px;
+  max-height: 390px;
+  overflow-y: auto;
+  padding: 6px 8px 6px 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(191, 152, 115, 0.55) transparent;
+}
+
+#rsvp-wishes-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+#rsvp-wishes-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#rsvp-wishes-list::-webkit-scrollbar-thumb {
+  background: rgba(191, 152, 115, 0.55);
+  border-radius: 10px;
+}
+
+#rsvp-wishes-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(191, 152, 115, 0.8);
 }
 
 .rsvp-wish-card {
@@ -1402,6 +1424,11 @@ blockquote {
   .rsvp-card {
     padding: 25px 20px;
     border-radius: 20px;
+  }
+
+  #rsvp-wishes-list {
+    max-height: 320px;
+    padding-right: 6px;
   }
 
   #rsvp .section-title h2 {
