@@ -449,6 +449,60 @@ img {
   z-index: -1;
 }
 
+.hero-flower {
+  position: absolute;
+  bottom: -3%;
+  z-index: 0;
+  width: clamp(220px, 29vw, 380px);
+  height: auto;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.hero-flower-left {
+  left: -3%;
+  transform-origin: bottom left;
+  animation: hero-flower-left-breeze 6.5s ease-in-out infinite;
+}
+
+.hero-flower-right {
+  right: -3%;
+  transform-origin: bottom right;
+  animation: hero-flower-right-breeze 5.8s ease-in-out infinite;
+}
+
+@keyframes hero-flower-left-breeze {
+  0%,
+  100% {
+    transform: rotate(-1deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(1deg) translate3d(3px, -3px, 0);
+  }
+}
+
+@keyframes hero-flower-right-breeze {
+  0%,
+  100% {
+    transform: rotate(1.2deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-0.8deg) translate3d(-3px, -2px, 0);
+  }
+}
+
+.hero-content,
+.scroll-indicator {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-flower {
+    animation: none;
+  }
+}
+
 .hero-content h4,
 .hero-content h1 {
   color: white;
@@ -569,6 +623,36 @@ blockquote {
   width: 100%;
   height: 100%;
   transition: transform 0.5s ease;
+}
+
+.person-image .floral-overlay {
+  position: absolute;
+  left: -5%;
+  bottom: -8%;
+  z-index: 2;
+  width: 62%;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  transform-origin: bottom left;
+  pointer-events: none;
+  animation: floral-breeze 7s ease-in-out infinite;
+}
+
+@keyframes floral-breeze {
+  0%,
+  100% {
+    transform: rotate(-1deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(1.2deg) translate3d(3px, -2px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .person-image .floral-overlay {
+    animation: none;
+  }
 }
 
 .person-image:hover img {
@@ -1137,6 +1221,19 @@ blockquote {
   .hero-bg {
     background-attachment: scroll; /* Disable parallax on mobile */
   }
+
+  .hero-flower {
+    bottom: -2%;
+    width: clamp(150px, 43vw, 230px);
+  }
+
+  .hero-flower-left {
+    left: -8%;
+  }
+
+  .hero-flower-right {
+    right: -8%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1156,6 +1253,9 @@ blockquote {
   .person-image {
     width: 240px;
     height: 320px;
+  }
+  .person-image .floral-overlay {
+    width: 66%;
   }
 }
 
