@@ -983,8 +983,8 @@ blockquote {
 }
 
 .footer-flower {
-  width: 225px;
-  max-width: 225px;
+  width: 117px;
+  max-width: 117px;
   height: auto;
   margin: 0 auto 0.75rem;
   object-fit: contain;
@@ -1019,8 +1019,8 @@ blockquote {
 }
 
 .section-flower {
-  width: 225px;
-  max-width: 225px;
+  width: 117px;
+  max-width: 117px;
   height: auto;
   margin: 0 auto;
   object-fit: contain;
@@ -1028,7 +1028,7 @@ blockquote {
 }
 
 #story .section-flower {
-  width: 225px;
+  width: 117px;
 }
 
 .section-flower-reveal.show .section-flower {
@@ -1045,8 +1045,8 @@ blockquote {
 
 .gift-flower {
   display: block;
-  width: 225px;
-  max-width: 225px;
+  width: 117px;
+  max-width: 117px;
   height: auto;
   object-fit: contain;
   transform-origin: center bottom;
