@@ -983,7 +983,8 @@ blockquote {
 }
 
 .footer-flower {
-  width: clamp(130px, 18vw, 220px);
+  width: 225px;
+  max-width: 225px;
   height: auto;
   margin: 0 auto 0.75rem;
   object-fit: contain;
@@ -1018,7 +1019,8 @@ blockquote {
 }
 
 .section-flower {
-  width: clamp(72px, 10vw, 110px);
+  width: 225px;
+  max-width: 225px;
   height: auto;
   margin: 0 auto;
   object-fit: contain;
@@ -1026,7 +1028,7 @@ blockquote {
 }
 
 #story .section-flower {
-  width: clamp(52px, 8vw, 80px);
+  width: 225px;
 }
 
 .section-flower-reveal.show .section-flower {
@@ -1043,7 +1045,8 @@ blockquote {
 
 .gift-flower {
   display: block;
-  width: clamp(64px, 9vw, 100px);
+  width: 225px;
+  max-width: 225px;
   height: auto;
   object-fit: contain;
   transform-origin: center bottom;
@@ -1284,15 +1287,15 @@ blockquote {
 
   .section-flower,
   #story .section-flower {
-    width: clamp(44px, 14vw, 64px);
+    width: 117px;
   }
 
   .gift-flower {
-    width: clamp(48px, 14vw, 72px);
+    width: 117px;
   }
 
   .footer-flower {
-    width: clamp(80px, 24vw, 120px);
+    width: 117px;
   }
 
   #navbar {
