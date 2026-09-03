@@ -253,7 +253,7 @@ const rsvpForm = document.getElementById('rsvp-form');
 const rsvpStatus = document.getElementById('rsvp-status');
 const rsvpWishesList = document.getElementById('rsvp-wishes-list');
 const rsvpStorageKey = 'sujar-cindy-rsvp';
-const supabaseClient = window.supabase?.createClient('');
+const supabaseClient = window.supabase?.createClient('https://your-supabase-url.supabase.co', 'your-supabase-anon-key');
 
 function renderRsvpList(rsvps) {
   rsvpWishesList.replaceChildren();
