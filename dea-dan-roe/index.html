@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Wedding of Sujarwanto & Cindy Tritavina</title>
+
+    <!-- Google Fonts -->
+    <link rel="icon" type="image/x-icon" href="aset/hero1.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Custom CSS (cache-busted) -->
+    <link rel="stylesheet" href="style.css?v=20260824" />
+  </head>
+  <body class="locked">
+    <!-- Opening Cover -->
+    <section id="cover" class="cover-section">
+      <div class="cover-bg" style="background-image: url('aset/hero1.jpg')"></div>
+      <div class="cover-overlay"></div>
+      <div class="cover-content">
+        <h4 class="fade-up">The Wedding Of</h4>
+        <h1 class="fade-up delay-1">
+          Dea<br>
+          &</h1><h1>Roe</h1>
+        </h1>
+        <div class="guest-info fade-up delay-2">
+          <p>Kepada Yth,</p>
+          <h3 id="guest-name"></h3>
+          <p>Anda di undang!</p>
+        </div>
+        <button id="open-invitation" class="btn-primary fade-up delay-3"><i class="fa-solid fa-envelope-open"></i> Buka Undangan!</button>
+      </div>
+    </section>
+
+    <!-- Main Content wrapper (hidden initially) -->
+    <main id="main-content" class="hidden">
+      <!-- Navigation -->
+      <nav id="navbar">
+        <div class="nav-container">
+          <div class="logo">D&R</div>
+          <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#hero"></a>Beranda</li>
+            <li><a href="#couple">Pasangan</a></li>
+            <li><a href="#story">Kisah</a></li>
+            <li><a href="#events">Acara</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Bottom Mobile Nav -->
+      <nav id="bottom-nav" class="mobile-only">
+        <ul>
+          <li>
+            <a href="#hero"><i class="fa-solid fa-house"></i><span>Home</span></a>
+          </li>
+          <li>
+            <a href="#couple"><i class="fa-solid fa-heart"></i><span>Couple</span></a>
+          </li>
+          <li>
+            <a href="#events"><i class="fa-regular fa-calendar"></i><span>Events</span></a>
+          </li>
+          <li>
+            <a href="#gallery"><i class="fa-regular fa-image"></i><span>Gallery</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="hero" class="section hero-section">
+        <div class="hero-bg" style="background-image: url('aset/galeri2.jpg')"></div>
+        <div class="hero-overlay"></div>
+        <img src="aset/bungakiri.png" alt="" class="hero-flower hero-flower-left" aria-hidden="true" />
+        <img src="aset/bungakanan.png" alt="" class="hero-flower hero-flower-right" aria-hidden="true" />
+        <div class="hero-content container scroll-anim">
+          <h4>The Wedding Of</h4>
+          <h1>Dea<br />&<br />Roe</h1>
+          <p class="wedding-date">Jum'at, 02 Oktober 2026</p>
+
+          <div class="countdown" id="countdown">
+            <div class="time-box">
+              <span id="days">00</span>
+              <p>Hari</p>
+            </div>
+            <div class="time-box">
+              <span id="hours">00</span>
+              <p>Jam</p>
+            </div>
+            <div class="time-box">
+              <span id="minutes">00</span>
+              <p>Menit</p>
+            </div>
+            <div class="time-box">
+              <span id="seconds">00</span>
+              <p>Detik</p>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <p>Lihat Selengkapnya</p>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </section>
+
+      <!-- Quote Section -->
+      <section id="quote" class="section quote-section bg-ivory">
+        <div class="container scroll-anim">
+          <i class="fa-solid fa-quote-left quote-icon"></i>
+          <blockquote>"Jika semesta memberiku kesempatan untuk mengulang kisah ini berkali-kali, aku akan tetap mencarimu di setiap kehidupan. Dan ketika akhirnya aku menemukanmu, Dea, aku akan tetap memilihmu."</blockquote>
+          <p class="quote-author">- Roe</p>
+        </div>
+      </section>
+
+      <!-- Bride & Groom -->
+      <section id="couple" class="section couple-section">
+        <div class="container">
+          <div class="section-title scroll-anim">
+            <h2>We are Getting Married!</h2>
+            <p>Assalamualaikum Warahmatullahi Wabarakatuh.
+Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami</p>
+          </div>
+
+          <div class="couple-grid">
+            <!-- Bride -->
+            <div class="person-card scroll-anim left">
+              <div class="person-image">
+                <img src="aset/perempuan.jpg" alt="Eleanor" class="bride-img" />
+                <img src="aset/bunga1.png" alt="" class="floral-overlay" aria-hidden="true" />
+                <div class="image-frame"></div>
+              </div>
+              <p class="person-role">The Bride</p>
+              <h3 class="person-name">Thea Khoerunnisa'I Salafi, S.Pd., Gr.</h3>
+              <p class="parents">Putri ke-1 Asep Ma'wan S.E. (ayah) Solihat Nuraeni (Ibu) </p>
+              <a href="https://www.instagram.com/theaaf__/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i> @theaaf__</a>
+            </div>
+
+            <div class="ampersand scroll-anim">
+              <h2>&</h2>
+            </div>
+
+            <!-- Groom -->
+            <div class="person-card scroll-anim right">
+              <div class="person-image">
+                <img src="aset/laki.jpg" alt="Theodore" class="groom-img" />
+                <img src="aset/bunga1.png" alt="" class="floral-overlay" aria-hidden="true" />
+                <div class="image-frame"></div>
+              </div>
+              <p class="person-role">The Groom</p>
+              <h3 class="person-name">Rohendi, S.Pd., Gr. </h3>
+              <p class="parents">Putra ke-1 Koswara (Ayah) Romlaela (Ibu) </p>
+              <a href="https://www.instagram.com/hendylization/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i> @hendylization</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Events -->
+      <section id="events" class="section events-section">
+        <div class="container">
+          <div class="section-title scroll-anim">
+            <h2>Save the Date</h2>
+            <p>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i, untuk menghadiri acara pernikahan kami</p>
+          </div>
+
+          <div class="events-grid">
+            <!-- Ceremony -->
+            <div class="event-card glass-panel scroll-anim left">
+              <div class="event-icon"><i class="fa-solid fa-ring"></i></div>
+              <h3>Akad</h3>
+              <div class="event-details">
+                <p><i class="fa-regular fa-calendar"></i> Minggu, 02 Oktober 2026</p>
+                <p><i class="fa-regular fa-clock"></i> 08.00 WIB S.D Selesai</p>
+                <p>
+                  <i class="fa-solid fa-location-dot"></i> <strong>Kediaman Mempelai Wanita</strong><br />
+                  Jl. H. Danu Katmaja No. 30 , RT 007/007, Desa Batujajar Barat, Kec. Batujajar Kab. Bandung Barat
+                </p>
+              </div>
+              <a href="#" class="btn-outline">Simpan ke Kalender</a>
+            </div>
+
+            <!-- Reception -->
+            <div class="event-card glass-panel scroll-anim right">
+              <div class="event-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+              <h3>Resepsi</h3>
+              <div class="event-details">
+                <p><i class="fa-regular fa-calendar"></i> Senin, 02 Oktober 2026</p>
+                <p><i class="fa-regular fa-clock"></i> 12.30 WIB S.D 14.30</p>
+                <p><i class="fa-solid fa-location-dot"></i> <strong>Kediaman Mempelai Wanita</strong><br />Jl. H. Danu Katmaja No. 30 , RT 007/007, Desa Batujajar Barat, Kec. Batujajar Kab. Bandung Barat</p>
+              </div>
+              <a href="#" class="btn-outline">Simpan ke Kalender</a>
+            </div>
+          </div>
+
+          <!-- Map Embed -->
+          <div class="map-container scroll-anim">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.745787557916!2d107.4943413!3d-6.9209637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e544e0055bc9%3A0xab62ae821d774a0f!2sJl.%20H.%20Danu%20Katmaja%20No.30%2C%20Batujajar%20Bar.%2C%20Kec.%20Batujajar%2C%20Kabupaten%20Bandung%20Barat%2C%20Jawa%20Barat%2040561!5e0!3m2!1sen!2sid!4v1789324984002!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <a href="https://maps.app.goo.gl/UDLzeLBMVuoBfDuq7" target="_blank" class="btn-primary map-btn"><i class="fa-solid fa-map-location-dot"></i> Open Google Maps</a>
+          </div>
+        </div>
+      </section>
+
+ <!-- Love Story Timeline -->
+      <section id="story" class="section story-section bg-ivory">
+        <div class="container">
+          <div class="section-title scroll-anim">
+            <h2>Love Story</h2>
+            <p>Sebuah perjalanan dari sapaan pertama kita hingga selamanya.</p>
+            <div class="section-flower-reveal scroll-anim" aria-hidden="true">
+              <img src="aset/bungafooter.png" alt="" class="section-flower" />
+            </div>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item scroll-anim left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>Awal Pertemuan</h3>
+                <span class="date">Juli 27, 2022</span>
+                <p>Di antara riuhnya suasana kelas kampus, takdir memperkenalkan kami sebagai dua sahabat yang saling mendukung.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item scroll-anim right">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>Proses</h3>
+                <span class="date">September 15, 2023</span>
+                <p>Ketika hati diuji oleh perjalanan waktu, ia hadir memberi ketenangan dan niat tulus untuk membimbingku menuju jalan-Nya.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item scroll-anim left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>Keputusan</h3>
+                <span class="date">Mei 31, 2026</span>
+                <p>Ternyata hadirnya adalah jawaban dari segala doa yang kupanjatkan. Kini kami siap menyatukan niat, saling melengkapi dalam proses belajar untuk menyempurnakan separuh agama.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery" class="section gallery-section bg-ivory">
+        <div class="container">
+          <div class="section-title scroll-anim">
+            <h2>Moments In Time</h2>
+            <p>Dan diantara tanda-tanda kekuasaan-Nya ialah diciptakan Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu mendapat ketenangan hati dan dijadikan-Nya kasih sayang diantara kamu.</p>
+            <div class="section-flower-reveal scroll-anim" aria-hidden="true">
+              <img src="aset/bungafooter.png" alt="" class="section-flower" />
+            </div>
+          </div>
+
+          <div class="gallery-masonry" id="gallery-container">
+            <div class="gallery-item scroll-anim"><img src="aset/galeri1.jpg" class="gal-img" alt="Gallery" /></div>
+            <div class="gallery-item scroll-anim"><img src="aset/galeri3.jpg" class="gal-img" alt="Gallery" /></div>
+            <div class="gallery-item scroll-anim"><img src="aset/galeri2.jpg" class="gal-img" alt="Gallery" /></div>
+            <div class="gallery-item scroll-anim"><img src="aset/foto1.jpg" class="gal-img" alt="Gallery" /></div>
+            <div class="gallery-item scroll-anim"><img src="aset/foto5.jpg" class="gal-img" alt="Gallery" /></div>
+          </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+          <span class="close-lightbox">&times;</span>
+          <img class="lightbox-content" id="lightbox-img" />
+        </div>
+      </section>
+
+      <!-- Gifts -->
+      <section id="gifts" class="section gifts-section bg-ivory">
+        <div class="container">
+          <div class="section-title scroll-anim">
+            <h2>Wedding Gift</h2>
+            <p>Doa restu Bapak/Ibu sekalian merupakan hadiah yang sangat berarti bagi kami. Apabila berkenan memberikan tanda kasih, Bapak/Ibu dapat menyampaikannya melalui detail yang telah kami sediakan di bawah ini. Terima kasih atas doa, perhatian, dan kasih sayang yang menyertai hari bahagia kami.</p>
+            <div class="gift-flower-reveal scroll-anim" aria-hidden="true">
+              <img src="aset/bungafooter.png" alt="" class="gift-flower" />
+            </div>
+          </div>
+
+          <div class="gifts-grid">
+            <div class="gift-card scroll-anim left">
+              <i class="fa-solid fa-building-columns gift-icon"></i>
+              <h3>Bank Transfer</h3>
+              <p class="bank-name">Mandiri</p>
+              <p class="account-number" id="acc-1">792101010349506</p>
+              <p class="account-name">THEA KHOERUNNISA</p>
+              <button class="btn-copy" onclick="copyText('acc-1', this)"><i class="fa-regular fa-copy"></i> Salin Nomor</button>
+            </div>
+
+            <div class="gift-card scroll-anim right">
+              <i class="fa-solid fa-building-columns gift-icon"></i>
+              <h3>Bank Transfer</h3>
+              <p class="bank-name">BSI</p>
+              <p class="account-number" id="acc-2">7242511772</p>
+              <p class="account-name">ROHENDI</p>
+              <button class="btn-copy" onclick="copyText('acc-2', this)"><i class="fa-regular fa-copy"></i> Salin Nomor</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="rsvp" class="section">
+  <div class="container">
+
+    <div class="section-title scroll-anim">
+      <h2>Wishes</h2>
+      <p>
+        Mohon konfirmasi kehadiran Anda pada acara pernikahan kami.
+      </p>
+    </div>
+
+    <div class="rsvp-card scroll-anim">
+
+      <form id="rsvp-form">
+
+        <div class="form-group">
+          <label for="rsvp-name">Nama</label>
+          <input
+            type="text"
+            id="rsvp-name"
+            placeholder="Masukkan nama Anda"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-attendance">Kehadiran</label>
+          <select id="rsvp-attendance" required>
+            <option value="">Pilih kehadiran</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Tidak Hadir</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-message">Ucapan & Doa</label>
+          <textarea
+            id="rsvp-message"
+            rows="4"
+            placeholder="Tuliskan ucapan dan doa..."
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" id="rsvp-submit">
+          <i class="fa-solid fa-paper-plane"></i>
+          Kirim Konfirmasi
+        </button>
+
+        <p id="rsvp-status"></p>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container scroll-anim">
+          <h2>Dea & Roe</h2>
+          <p>Terima kasih telah menjadi bagian dari hari istimewa kami.</p>
+          <img src="aset/bungafooter.png" alt="" class="footer-flower" aria-hidden="true" />
+          <p class="copyright">&copy; 2026 Dea & Roe. Designed with @invitemomentkita</p>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Floating Buttons -->
+    <div class="floating-controls hidden" id="floating-controls">
+      <button id="music-btn" class="float-btn"><i class="fa-solid fa-music"></i></button>
+      <a href="https://wa.me/6285269791161" target="_blank" class="float-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <!-- Audio (Placeholder) -->
+    <audio id="bg-music" loop>
+      <source src="aset/romansa.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
