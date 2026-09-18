@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (supabaseClient) {
       supabaseClient
-        .from('cindy')
+        .from('dea')
         .select('nama')
         .ilike('nama', formattedName)
         .limit(1)
@@ -251,10 +251,14 @@ window.copyText = function (elementId, btnElement) {
 // --- 8. RSVP Supabase ---
 const rsvpForm = document.getElementById('rsvp-form');
 const rsvpStatus = document.getElementById('rsvp-status');
-const rsvpStorageKey = 'sujar-cindy-rsvp';
-const supabaseClient = window.supabase?.createClient('https://csuwnladmgmqmfwzuvji.supabase.co', 'sb_publishable_55tMFA8vcQKj98tgeEWK8w_rVXIRYCO');
+const rsvpStorageKey = 'dea-roe-rsvp';
+const supabaseClient = window.supabase?.createClient('https://mllzqhppehuabamebbae.supabase.co', 'sb_publishable_Qn3VZnNmNG9bX8XylTd5Dw_CaQDPWZs');
 
 if (rsvpForm && rsvpStatus) {
+  if (!supabaseClient) {
+    rsvpStatus.textContent = 'RSVP belum dapat terhubung ke server.';
+  }
+
   try {
     if (localStorage.getItem(rsvpStorageKey)) {
       rsvpForm.hidden = true;
@@ -276,11 +280,11 @@ if (rsvpForm && rsvpStatus) {
     const rsvp = {
       nama: document.getElementById('rsvp-name').value.trim(),
       status_kehadiran: document.getElementById('rsvp-attendance').value,
-      ucapann: document.getElementById('rsvp-message').value.trim(),
+      ucapan: document.getElementById('rsvp-message').value.trim(),
       timestamp: new Date().toISOString(),
     };
 
-    if (!rsvp.nama || !rsvp.status_kehadiran || !rsvp.ucapann) {
+    if (!rsvp.nama || !rsvp.status_kehadiran || !rsvp.ucapan) {
       rsvpStatus.textContent = 'Mohon lengkapi semua data.';
       return;
     }
@@ -289,8 +293,13 @@ if (rsvpForm && rsvpStatus) {
     rsvpSubmit.disabled = true;
     rsvpSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
 
+    if (!supabaseClient) {
+      rsvpStatus.textContent = 'RSVP belum dapat terhubung ke server.';
+      return;
+    }
+
     try {
-      const { error } = await supabaseClient.from('cindy').insert(rsvp);
+      const { error } = await supabaseClient.from('dea').insert(rsvp);
 
       if (error) {
         throw error;
