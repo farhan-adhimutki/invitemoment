@@ -281,7 +281,6 @@ if (rsvpForm && rsvpStatus) {
       nama: document.getElementById('rsvp-name').value.trim(),
       status_kehadiran: document.getElementById('rsvp-attendance').value,
       ucapan: document.getElementById('rsvp-message').value.trim(),
-      timestamp: new Date().toISOString(),
     };
 
     if (!rsvp.nama || !rsvp.status_kehadiran || !rsvp.ucapan) {
@@ -289,14 +288,14 @@ if (rsvpForm && rsvpStatus) {
       return;
     }
 
-    const rsvpSubmit = document.getElementById('rsvp-submit');
-    rsvpSubmit.disabled = true;
-    rsvpSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
-
     if (!supabaseClient) {
       rsvpStatus.textContent = 'RSVP belum dapat terhubung ke server.';
       return;
     }
+
+    const rsvpSubmit = document.getElementById('rsvp-submit');
+    rsvpSubmit.disabled = true;
+    rsvpSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
 
     try {
       const { error } = await supabaseClient.from('dea').insert(rsvp);
