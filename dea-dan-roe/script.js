@@ -251,7 +251,6 @@ window.copyText = function (elementId, btnElement) {
 // --- 8. RSVP Supabase ---
 const rsvpForm = document.getElementById('rsvp-form');
 const rsvpStatus = document.getElementById('rsvp-status');
-const rsvpStorageKey = 'dea-roe-rsvp';
 const supabaseClient = window.supabase?.createClient('https://mllzqhppehuabamebbae.supabase.co', 'sb_publishable_Qn3VZnNmNG9bX8XylTd5Dw_CaQDPWZs');
 
 if (rsvpForm && rsvpStatus) {
@@ -259,23 +258,8 @@ if (rsvpForm && rsvpStatus) {
     rsvpStatus.textContent = 'RSVP belum dapat terhubung ke server.';
   }
 
-  try {
-    if (localStorage.getItem(rsvpStorageKey)) {
-      rsvpForm.hidden = true;
-      rsvpStatus.textContent = 'Anda sudah mengirim RSVP.';
-    }
-  } catch (error) {
-    console.error('Local RSVP error:', error);
-  }
-
   rsvpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    if (localStorage.getItem(rsvpStorageKey)) {
-      rsvpForm.hidden = true;
-      rsvpStatus.textContent = 'Anda sudah mengirim RSVP.';
-      return;
-    }
 
     const rsvp = {
       nama: document.getElementById('rsvp-name').value.trim(),
@@ -304,7 +288,6 @@ if (rsvpForm && rsvpStatus) {
         throw error;
       }
 
-      localStorage.setItem(rsvpStorageKey, 'sent');
       rsvpForm.hidden = true;
       rsvpStatus.textContent = 'Anda sudah mengirim RSVP.';
     } catch (error) {
