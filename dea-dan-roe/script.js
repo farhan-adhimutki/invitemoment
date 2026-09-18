@@ -251,9 +251,57 @@ window.copyText = function (elementId, btnElement) {
 // --- 8. RSVP Supabase ---
 const rsvpForm = document.getElementById('rsvp-form');
 const rsvpStatus = document.getElementById('rsvp-status');
+const rsvpWishesList = document.getElementById('rsvp-wishes-list');
 const supabaseClient = window.supabase?.createClient('https://mllzqhppehuabamebbae.supabase.co', 'sb_publishable_Qn3VZnNmNG9bX8XylTd5Dw_CaQDPWZs');
 
-if (rsvpForm && rsvpStatus) {
+function renderRsvpList(rsvps) {
+  rsvpWishesList.replaceChildren();
+
+  rsvps.forEach((rsvp) => {
+    const card = document.createElement('article');
+    card.className = 'rsvp-wish-card';
+
+    const header = document.createElement('div');
+    header.className = 'rsvp-wish-header';
+
+    const name = document.createElement('h4');
+    name.textContent = rsvp.nama;
+
+    const attendance = document.createElement('span');
+    attendance.className = 'rsvp-attendance';
+    attendance.textContent = rsvp.status_kehadiran;
+
+    const message = document.createElement('p');
+    message.textContent = rsvp.ucapan;
+
+    header.append(name, attendance);
+    card.append(header, message);
+    rsvpWishesList.append(card);
+  });
+}
+
+async function loadRsvps() {
+  if (!supabaseClient || !rsvpWishesList) {
+    return;
+  }
+
+  const { data, error } = await supabaseClient
+    .from('dea')
+    .select('nama, status_kehadiran, ucapan, created_at')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('Load RSVP error:', error);
+    rsvpStatus.textContent = `Ucapan belum dapat dimuat: ${error.message}`;
+    return;
+  }
+
+  renderRsvpList(data || []);
+}
+
+if (rsvpForm && rsvpStatus && rsvpWishesList) {
+  loadRsvps();
+
   if (!supabaseClient) {
     rsvpStatus.textContent = 'RSVP belum dapat terhubung ke server.';
   }
@@ -290,6 +338,7 @@ if (rsvpForm && rsvpStatus) {
 
       rsvpForm.hidden = true;
       rsvpStatus.textContent = 'Anda sudah mengirim RSVP.';
+      await loadRsvps();
     } catch (error) {
       console.error('Supabase RSVP error:', error);
       rsvpStatus.textContent = error.message ? `RSVP gagal: ${error.message}` : 'RSVP tidak dapat dikirim. Silakan coba lagi.';
