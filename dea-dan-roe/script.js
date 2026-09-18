@@ -285,10 +285,7 @@ async function loadRsvps() {
     return;
   }
 
-  const { data, error } = await supabaseClient
-    .from('dea')
-    .select('nama, status_kehadiran, ucapan, created_at')
-    .order('created_at', { ascending: false });
+  const { data, error } = await supabaseClient.from('dea').select('nama, status_kehadiran, ucapan, created_at').order('created_at', { ascending: false });
 
   if (error) {
     console.error('Load RSVP error:', error);
