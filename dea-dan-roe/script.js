@@ -292,7 +292,7 @@ if (rsvpForm && rsvpStatus) {
       rsvpStatus.textContent = 'Anda sudah mengirim RSVP.';
     } catch (error) {
       console.error('Supabase RSVP error:', error);
-      rsvpStatus.textContent = 'RSVP tidak dapat dikirim. Silakan coba lagi.';
+      rsvpStatus.textContent = error.message ? `RSVP gagal: ${error.message}` : 'RSVP tidak dapat dikirim. Silakan coba lagi.';
       rsvpSubmit.disabled = false;
       rsvpSubmit.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Kirim Konfirmasi';
     }

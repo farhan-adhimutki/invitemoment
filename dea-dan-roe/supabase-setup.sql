@@ -10,6 +10,8 @@ create table if not exists public.dea (
 
 alter table public.dea enable row level security;
 
+grant select, insert on table public.dea to anon;
+
 drop policy if exists "Allow public insert" on public.dea;
 -- Izinkan siapa saja (pengunjung web) mengirim RSVP
 create policy "Allow public insert" on public.dea
